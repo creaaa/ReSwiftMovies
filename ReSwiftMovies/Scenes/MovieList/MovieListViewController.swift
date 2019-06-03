@@ -28,15 +28,16 @@ class MovieListViewController: UIViewController, StoryBoardable, StoreSubscriber
         
         store.dispatch(AppActions.MovieList.startLoadingMovies())
     }
-    
+
+    // こ、コールバック...だと... エスケープされてどこかから呼び出されてるとでもいうのか....???
     func newState(state: AppState) {
-        
+
         guard state.movieListState.movies.count > 0 else { return }
-        
+
         self.movies = state.movieListState.movies
         tableView.reloadData()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

@@ -2,7 +2,7 @@
 import UIKit
 import ReSwift
 
-let store = Store<AppState>(
+let store = Store/*<AppState>*/(
     reducer: appReducers,
     state: nil,
     middleware: [AppMiddleware]

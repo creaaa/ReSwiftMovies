@@ -3,6 +3,10 @@ import Foundation
 import ReSwift
 import RxSwift
 
+typealias Middleware<State> = (@escaping DispatchFunction, @escaping () -> State?) -> (@escaping DispatchFunction)
+    -> DispatchFunction
+typealias DispatchFunction = (Action) -> Void
+
 let AppMiddleware: Middleware<AppState> = { dispatch, getState in
     return { next in
         return { _action in
